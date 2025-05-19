@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>แบบประเมินอัตราส่วนทางการเงิน</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 30px; line-height: 1.6; }
+        h2 { color: #2c3e50; }
+        input[type="number"] { padding: 6px; margin: 5px 0; width: 200px; }
+        output { font-weight: bold; color: green; }
+        form { background: #f9f9f9; padding: 20px; border-radius: 8px; max-width: 600px; }
+    </style>
+</head>
+<body>
+    <h2>แบบประเมินอัตราส่วนทางการเงินของวิสาหกิจชุมชน</h2>
+    <form oninput="
+        cr.value = (+asset.value / +debt.value).toFixed(2);
+        op.value = (+revenue.value / +totalAsset.value).toFixed(2);
+        pr.value = ((+profit.value / +revenue.value) * 100).toFixed(2);
+    ">
+        <p><strong>1. สินทรัพย์หมุนเวียนรวม:</strong> <input id="asset" type="number" required></p>
+        <p><strong>2. หนี้สินหมุนเวียนรวม:</strong> <input id="debt" type="number" required></p>
+        <p><strong>3. รายได้ทั้งหมด:</strong> <input id="revenue" type="number" required></p>
+        <p><strong>4. กำไรสุทธิ:</strong> <input id="profit" type="number" required></p>
+        <p><strong>5. สินทรัพย์ทั้งหมด:</strong> <input id="totalAsset" type="number" required></p>
+        <hr>
+        <p>✅ <strong>อัตราส่วนสภาพคล่อง (Current Ratio):</strong> <output name="cr"></output></p>
+        <p>✅ <strong>อัตราส่วนสมรรถภาพในการดำเนินงาน:</strong> <output name="op"></output></p>
+        <p>✅ <strong>อัตราส่วนความสามารถในการทำกำไร (%):</strong> <output name="pr"></output></p>
+    </form>
+</body>
+</html>
